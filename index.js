@@ -25,7 +25,7 @@ function doRequest(customUrl) {
             if (!error && response.statusCode == 200) {
                 resolve(response);
             } else {
-                console.log(response.statusCode);
+                //console.log(response);
                 reject(error);
             }
         });
@@ -33,13 +33,21 @@ function doRequest(customUrl) {
 }
 
 async function main(url) {
-    const response = await doRequest(url);
-    roundToTwo(res.timingPhases);
-    console.log(res.timingPhases);
+    const response = await doRequest(url)
+	.then(
+	)
+	.catch((err) => {
+	    console.log(err.code)});
+    /*
+    roundToTwo(response.timingPhases);
+    console.log(response.timingPhases);
+    console.log(response.req)*/
 }
 
 
 const url1 = "https://educacao.genialinvestimentos.com.br/portal/login";
 const url2 = "http://10.160.65.161:5000/hc";
+const url3 = "https://educacao.genialinvestimentos.com.br/test";
+const url4 = "https://4EDGeducacao.genialinvestimentos.com.br/test";
 
-main(url1);
+main(url4);
